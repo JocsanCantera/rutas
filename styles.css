@@ -1,35 +1,65 @@
 /* ===== RESET ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
-body { background-color: #0b1e3c; color: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+* { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI', Roboto, sans-serif; }
+body { background-color:#0b1e3c; color:#fff; min-height:100vh; display:flex; flex-direction:column; }
 
 /* HEADER */
-header { background: linear-gradient(90deg, #102c54, #0b1e3c); backdrop-filter: blur(6px); padding: 25px 10%; text-align:center; border-bottom: 2px solid #1c3a6b; }
-header h1 { font-size: 2rem; margin-bottom: 5px; }
-header p { font-size: 1rem; color: #b0c4de; }
+header { background: linear-gradient(90deg,#0f2b53,#102c54); padding:20px 10%; text-align:center; backdrop-filter:blur(6px); border-bottom:2px solid #1c3a6b; }
+header h1 { font-size:2rem; margin-bottom:5px; }
+header p { font-size:1rem; color:#b0c4de; margin-bottom:10px; }
 
-/* MAIN CHAT */
+/* PROGRESS BAR */
+.progress-bar { width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden; margin-top:10px; }
+.progress-fill { height:100%; width:0%; background:#4f9aff; transition:width 0.5s ease; }
+
+/* MAIN WIZARD */
 main { flex:1; padding:20px 10%; display:flex; justify-content:center; align-items:flex-start; }
-.chat-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border-radius:12px; width:100%; max-width:600px; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,0.35); }
-.chat-window { flex:1; padding:15px; overflow-y:auto; min-height:300px; }
+.wizard-container { width:100%; max-width:700px; }
 
-.message { margin-bottom:15px; padding:10px 15px; border-radius:12px; max-width:80%; line-height:1.4; word-wrap:break-word; }
-.agent { background: rgba(79,154,255,0.2); color:#fff; align-self:flex-start; }
-.user { background: rgba(79,154,255,0.6); color:#0b1e3c; align-self:flex-end; }
+/* WIZARD CARDS */
+.wizard-cards .card { 
+  background: rgba(255,255,255,0.05); 
+  backdrop-filter: blur(16px); 
+  border-radius:16px; 
+  padding:25px; 
+  margin-bottom:25px; 
+  opacity:0; 
+  transform: translateY(40px); 
+  transition: all 0.6s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+.wizard-cards .card.active { 
+  opacity:1; 
+  transform: translateY(0); 
+}
 
-/* INPUT WIZARD */
-.chat-input { display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,0.2); padding:10px; }
-.chat-input input, .chat-input select { padding:12px; margin-bottom:10px; border:none; border-radius:8px; background: rgba(255,255,255,0.1); color:#fff; font-size:1rem; }
-.chat-input input:focus, .chat-input select:focus { outline: 2px solid #4f9aff; }
+/* Mensajes del agente */
+.agent-text { margin-bottom:20px; background: rgba(79,154,255,0.2); padding:12px 18px; border-radius:12px; font-weight:500; }
 
-.chat-input button { padding:12px; border:none; background-color:#1c3a6b; color:#fff; font-weight:bold; cursor:pointer; transition: all 0.3s ease; border-radius:8px; }
-.chat-input button:hover { background-color:#4f9aff; color:#0b1e3c; }
-
-/* SELECT OPTIONS */
-select option { background-color:#0b1e3c; color:#fff; padding:5px; }
+/* Inputs */
+input, select { width:100%; padding:14px; margin-bottom:20px; border:none; border-radius:10px; background: rgba(255,255,255,0.1); color:#fff; font-size:1rem; transition: all 0.3s ease; }
+input:focus, select:focus { outline:2px solid #4f9aff; transform:scale(1.02); }
+select option { background-color:#0b1e3c; color:#fff; padding:8px; }
 select option:hover { background-color:#4f9aff; color:#0b1e3c; }
+
+/* Botón */
+button { padding:14px; border:none; background-color:#1c3a6b; color:#fff; font-weight:bold; cursor:pointer; transition: all 0.3s ease; border-radius:10px; width:100%; font-size:1.1rem; }
+button:hover { background-color:#4f9aff; color:#0b1e3c; transform:scale(1.03); }
+
+/* RESUMEN FINAL */
+.resumen-final { background: rgba(255,255,255,0.05); backdrop-filter: blur(16px); border-radius:16px; padding:25px; box-shadow:0 10px 25px rgba(0,0,0,0.35); }
+.resumen-final h2 { margin-bottom:15px; text-align:center; color:#4f9aff; }
+.resumen-final pre { white-space:pre-wrap; background: rgba(255,255,255,0.05); padding:15px; border-radius:12px; }
+
+/* NOTIFICACIONES DE ALERTA */
+.alert { background: rgba(255,69,0,0.3); color:#ffddcc; padding:10px 15px; border-radius:10px; margin-bottom:15px; animation:fadeIn 0.5s ease; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
 /* FOOTER */
 footer { background-color:#08182f; text-align:center; padding:15px 10%; font-size:0.9rem; color:#b0c4de; }
 
 /* RESPONSIVE */
-@media(max-width:768px){ header, footer, main{padding:20px 5%;} header h1{font-size:1.5rem;} header p{font-size:0.9rem;} }
+@media(max-width:768px){ 
+  header, footer, main{padding:20px 5%;} 
+  header h1{font-size:1.5rem;} 
+  header p{font-size:0.9rem;} 
+}

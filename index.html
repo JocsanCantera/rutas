@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agente Conversacional de Planeación de Rutas</title>
+  <title>Agente Profesional de Planeación de Rutas</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- HEADER -->
   <header>
     <div class="header-content">
-      <h1>Agente de Planeación de Rutas</h1>
-      <p>Asistente paso a paso para estandarizar rutas</p>
+      <h1>Agente Profesional de Planeación de Rutas</h1>
+      <p>Estandarización del razonamiento inicial de rutas</p>
+      <div class="progress-bar">
+        <div id="progress" class="progress-fill"></div>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN CHAT WIZARD -->
+  <!-- MAIN WIZARD -->
   <main>
-    <section class="chat-card">
-      <div id="chatWindow" class="chat-window">
-        <!-- Mensajes del agente y usuario aparecerán aquí -->
-      </div>
-      <form id="chatForm" class="chat-input">
-        <!-- Aquí el wizard generará inputs dinámicos -->
-      </form>
+    <section class="wizard-container">
+      <div id="wizardCards" class="wizard-cards"></div>
+      <div id="resumenFinal" class="resumen-final" style="display:none;"></div>
     </section>
   </main>
 
@@ -32,6 +31,6 @@
     <p>Herramienta interna de planeación operativa | Traxión © 2026</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="agent.js"></script>
 </body>
 </html>
